@@ -1,0 +1,91 @@
+@import "./mixin";
+@import "./reset";
+@import "./swiper";
+@import "./gnb";
+
+$innerWidth: 1300px;
+
+main {
+    &#main_page {
+        section {
+            &:not(.s01){
+                article{
+                    max-width: $innerWidth;
+                    width: 100%;
+                    margin: 0 auto;
+                }
+            }
+            &.s01{
+                article {
+                    .wrap {
+                        .swiper {
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            z-index: 2;
+    
+                            .swiper-wrapper {
+                                width: 100%;
+                                height: 100%;
+    
+                                .swiper-slide {
+                                    width: 100%;
+                                    height: 100%;
+                                    position: relative;
+    
+                                    .bg {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        z-index: 1;
+    
+                                        >img,
+                                        >video,
+                                        >iframe {
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                        }
+                                    }
+    
+                                    .title {
+                                        width: 100%;
+                                        max-width: $innerWidth;
+                                        margin: 0 auto;
+                                        position: relative;
+                                        z-index: 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &#sub_page {
+        section {
+            article {
+                max-width: $innerWidth;
+                width: 100%;
+                margin: 0 auto;
+                .wrap {
+                    .title {
+                        h2 {}
+                        p {}
+                    }
+                    .content{
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@import "./media";
