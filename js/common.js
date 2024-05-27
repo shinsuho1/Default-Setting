@@ -1,17 +1,11 @@
 
 const header = document.querySelector("header");
-const menuicon = document.querySelector("#menuicon");
+const menuicon = document.querySelector(".menuicon");
 const pop_menu = document.querySelector(".pop_menu");
-// menuicon.addEventListener("click", () => {
-//     if (menuicon.checked) {
-//         pop_menu.classList.add("active");
-//     } else {
-//         pop_menu.classList.remove("active");
-//     }
-// });
-// window.addEventListener("load", () => {
-//     menuicon.checked = false;
-// });
+
+$(".menuicon").on("click",function(){
+    $(this).toggleClass("active");
+});
 
 let lastScroll = 0;
 window.addEventListener("scroll", () => {
@@ -25,8 +19,6 @@ window.addEventListener("scroll", () => {
 })
 
 
-
-const main_text = document.querySelectorAll(".main_text");
 var main_slide = new Swiper(".main_slide", {
     loop: true,
     autoplay: {
