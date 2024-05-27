@@ -1,7 +1,67 @@
+$headerHeight: 100px;
 header{
+    width: 100%;
+    position: fixed;
+    z-index: 100;
     .header-wrap{
         width: $innerWidth;
         margin: 0 auto;
+        @include flex_space_center;
+        #gnb{
+            &.pc{
+                @include flex_center;
+                >li{
+                    position: relative;
+                    >a{
+                        padding: 0 20px;
+                    }
+                    .sub-menu{
+                        width: 100%;
+                        position: absolute;
+                        top: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        pointer-events: none;
+                        opacity: 0;
+                        transition: .5s;
+                        padding-top: 10px;
+                        text-align: center;
+                        li{
+                            width: 100%;
+                            a{
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    // &:hover{
+                    //     .sub-menu{
+                    //         pointer-events: visible;
+                    //         opacity: 1;
+                    //     }
+                    // }
+                }
+                &:hover{
+                    >li{
+                        .sub-menu{
+                            pointer-events: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &.mo{
+                position: absolute;
+                top: $headerHeight;
+                right: 0;
+                >li{
+                    a{}
+                    .sub-menu{
+                        display: none;
+                    }   
+                }
+            }
+        }
         .menuicon{
             width: 28px;
             height: 14px;

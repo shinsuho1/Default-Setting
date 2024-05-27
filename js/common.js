@@ -29,6 +29,12 @@ var main_slide = new Swiper(".main_slide", {
 
 
 
+$("#gnb.mo>li>a").on("click",function(e){
+    e.preventDefault();
+    $(this).siblings(".sub-menu").stop().slideToggle();
+});
+
+
 
 
 
