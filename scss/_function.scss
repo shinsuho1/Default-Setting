@@ -1,4 +1,4 @@
-/* scss  function */
+/* SCSS  function */
 @mixin flex_center {
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-}   
+}
 
 @mixin flex_space {
     display: flex;
@@ -45,37 +45,35 @@
     flex-direction: column;
 }
 
-@mixin pos_center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@mixin inner-center($max-width) {
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
 }
 
-@mixin pos-unset {
-    position: unset;
-    left: unset;
-    right: unset;
-    top: unset;
-    bottom: unset;
-    transform: unset;
-}
-
-@mixin bg_center($url) {
+@mixin cover-bg($url) {
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+@mixin contain-bg($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 @mixin el_calc($count, $gap) {
     width: calc(100% / $count - ($gap * ($count - 1) / $count));
 }
 
-@mixin flex_el_list($count,$column-gap,$row-gap){
+@mixin flex_el_list($count, $column-gap, $row-gap) {
     @include flex_list;
     row-gap: $row-gap;
     column-gap: $column-gap;
-    >*{
+    >* {
         width: calc(100% / $count - ($column-gap * ($count - 1) / $count));
     }
 }
@@ -86,7 +84,7 @@
     object-fit: cover;
 }
 
-@mixin fullSize {
+@mixin fullsize {
     width: 100%;
     height: 100%;
 }
@@ -126,6 +124,22 @@
     overflow: hidden;
 }
 
+@mixin ellipsis($line: 1) {
+    @if ($line==1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
 @mixin el_hide {
     opacity: 0;
     visibility: hidden;
@@ -138,20 +152,20 @@
     pointer-events: auto;
 }
 
-@mixin dragg_off {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    pointer-events: none
-}
-
-@mixin dragg_on {
+@mixin drag_on {
     -webkit-user-select: all;
     -moz-user-select: all;
     -ms-user-select: all;
     user-select: all;
     pointer-events: visible;
+}
+
+@mixin drag_off {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none
 }
 
 @mixin appearance_none {
@@ -160,12 +174,70 @@
     -webkit-appearance: none;
 }
 
-/* scss  function */
+@mixin pos-x-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin pos-y-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin pos-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin pos-unset {
+    position: unset;
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+    transform: unset;
+}
+
+@mixin before-bg($color,$opacity: 1){
+    @include fullsize;
+    &:before{
+        content: "";
+        @include fullsize;
+        position: absolute;
+        @include pos-center;
+        background-color: $color;
+        opacity: $opacity;
+    }
+}
+
+@mixin after-bg($color,$opacity: 1){
+    @include fullsize;
+    &:after{
+        content: "";
+        @include fullsize;
+        position: absolute;
+        @include pos-center;
+        background-color: $color;
+        opacity: $opacity;
+    }
+}
+
+@mixin floot-clear {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+/* SCSS  function */
 
 
 
 
-/* CSS reset */
+/* CSS common */
 *,
 *:before,
 *:after {
@@ -193,18 +265,19 @@ section {
 }
 
 html {
-    &::-webkit-scrollbar {
-        width: 4px;
-        height: 10px;
-    }
+    // scroll-bar
+    // &::-webkit-scrollbar {
+    //     width: 4px;
+    //     height: 10px;
+    // }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #aaa;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //     background-color: #aaa;
+    // }
 
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
+    // &::-webkit-scrollbar-track {
+    //     background-color: transparent;
+    // }
 }
 
 
@@ -236,7 +309,8 @@ button {
 }
 
 input,
-input::placeholder option,
+input::placeholder,
+option,
 textarea,
 textarea::placeholder,
 select {
@@ -342,4 +416,4 @@ body {
     }
 }
 
-/* CSS reset */
+/* CSS common */
