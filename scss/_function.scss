@@ -102,19 +102,19 @@
 
 @mixin fixedSize($width, $height) {
     width: 100%;
+    height: 100%;
     max-width: $width;
     max-height: $width;
-    height: 100%;
-    max-height: $height;
+    min-width: $height;
     min-height: $height;
 }
 
-@mixin transition($x) {
-    transition: $x;
-    -webkit-transition: $x;
-    -moz-transition: $x;
-    -ms-transition: $x;
-    -o-transition: $x;
+@mixin transition($s) {
+    transition: $s;
+    -webkit-transition: $s;
+    -moz-transition: $s;
+    -ms-transition: $s;
+    -o-transition: $s;
 }
 
 
@@ -369,6 +369,10 @@ body {
         backdrop-filter: blur(3px);
         opacity: 1;
     }
+}
+
+.aos_span{
+    display: inline-block;
 }
 
 .only {

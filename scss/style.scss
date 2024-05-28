@@ -74,17 +74,19 @@ main {
 
 
     &#sub_page {
-        section {
-            article {
-                max-width: $innerWidth;
-                width: 100%;
-                margin: 0 auto;
-                .wrap {
-                    .title {
-                        h2 {}
-                        p {}
-                    }
-                    .content{
+        &.about{
+            section {
+                article {
+                    max-width: $innerWidth;
+                    width: 100%;
+                    margin: 0 auto;
+                    .wrap {
+                        .title {
+                            h2 {}
+                            p {}
+                        }
+                        .content{
+                        }
                     }
                 }
             }

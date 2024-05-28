@@ -1,3 +1,4 @@
+// let url = location.href.split('/')[(location.href.split('/').length - 2)];
 
 const header = document.querySelector("header");
 const menuicon = document.querySelector(".menuicon");
