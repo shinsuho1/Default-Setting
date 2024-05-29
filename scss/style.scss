@@ -10,35 +10,28 @@ main {
             width: 100%;
             &:not(.s01){
                 article{
-                    max-width: $innerWidth; 
-                    width: 100%;
-                    margin: 0 auto;
+                    @include inner-center($innerWidth);
                 }
             }
             &.s01{
                 width: 100%;
                 height: 100vh;
                 article {
-                    width: 100%;
-                    height: 100%;
+                    @include fullsize;
                     .wrap {
-                        width: 100%;
-                        height: 100%;
+                        @include fullsize;
                         .swiper {
-                            width: 100%;
-                            height: 100%;
+                            @include fullsize;
                             position: relative;
                             z-index: 2;
     
                             .swiper-wrapper {
-                                width: 100%;
-                                height: 100%;
-    
+                                @include fullsize;
+                                
                                 .swiper-slide {
-                                    width: 100%;
-                                    height: 100%;
+                                    @include fullsize;
+                                    @include flex-center;
                                     position: relative;
-    
                                     .bg {
                                         width: 100%;
                                         height: 100%;
@@ -57,9 +50,7 @@ main {
                                     }
     
                                     .title {
-                                        width: 100%;
-                                        max-width: $innerWidth;
-                                        margin: 0 auto;
+                                        @include inner-center($innerWidth);
                                         position: relative;
                                         z-index: 1;
                                     }
@@ -77,9 +68,7 @@ main {
         &.about{
             section {
                 article {
-                    max-width: $innerWidth;
-                    width: 100%;
-                    margin: 0 auto;
+                    @include inner-center($innerWidth);
                     .wrap {
                         .title {
                             h2 {}

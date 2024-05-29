@@ -1,48 +1,52 @@
 /* ================================ function  ================================*/
+@mixin flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
 
-@mixin flex_center {
+@mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@mixin flex_list {
+@mixin flex-list {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
 }
 
-@mixin flex_space {
+@mixin flex-space {
     display: flex;
     justify-content: space-between;
 }
 
-@mixin flex_space_center {
+@mixin flex-space-center {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-@mixin flex_space_start {
+@mixin flex-space-start {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-@mixin flex_space_end {
+@mixin flex-space-end {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-@mixin flex_column {
+@mixin flex-column {
     display: flex;
     flex-direction: column;
 }
 
-@mixin flex_column_center {
-    @include flex_center;
+@mixin flex-column-center {
+    @include flex-center;
     flex-direction: column;
 }
 
@@ -66,12 +70,12 @@
     background-size: contain;
 }
 
-@mixin el_calc($count, $gap) {
+@mixin el-calc($count, $gap) {
     width: calc(100% / $count - ($gap * ($count - 1) / $count));
 }
 
-@mixin flex_el_list($count, $column-gap, $row-gap) {
-    @include flex_list;
+@mixin flex-el-list($count, $column-gap, $row-gap) {
+    @include flex-list;
     row-gap: $row-gap;
     column-gap: $column-gap;
     >* {
@@ -79,7 +83,7 @@
     }
 }
 
-@mixin img_cover {
+@mixin img-cover {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -141,19 +145,19 @@
     }
 }
 
-@mixin el_hide {
+@mixin el-hide {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-@mixin el_fade {
+@mixin el-fade {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
-@mixin drag_on {
+@mixin drag-on {
     -webkit-user-select: all;
     -moz-user-select: all;
     -ms-user-select: all;
@@ -161,7 +165,7 @@
     pointer-events: visible;
 }
 
-@mixin drag_off {
+@mixin drag-off {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -169,7 +173,7 @@
     pointer-events: none
 }
 
-@mixin appearance_none {
+@mixin appearance-none {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -232,6 +236,68 @@
     }
 }
 
+
+/* ================================ FONT ================================ */
+@mixin fs-20{
+    font-size: 20px;
+}
+
+
+/* ================================ keyframe ================================ */
+
+@keyframes zoom-out{
+    0%{
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-up{
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-down{
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-left{
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade-right{
+    0%{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
 
 /* ================================ common ================================ */
 *,
