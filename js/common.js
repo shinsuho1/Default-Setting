@@ -1,10 +1,11 @@
-// let url = location.href.split('/')[(location.href.split('/').length - 2)];
+/* ================================ common ================================ */
 
+// let url = location.href.split('/')[(location.href.split('/').length - 2)];
 const header = document.querySelector("header");
 const menuicon = document.querySelector(".menuicon");
 const pop_menu = document.querySelector(".pop_menu");
 
-$(".menuicon").on("click",function(){
+$(".menuicon").on("click", function () {
     $(this).toggleClass("active");
 });
 
@@ -30,7 +31,7 @@ var main_slide = new Swiper(".main_slide", {
 
 
 
-$("#gnb.mo>li>a").on("click",function(e){
+$("#gnb.mo>li>a").on("click", function (e) {
     e.preventDefault();
     $(this).siblings(".sub-menu").stop().slideToggle();
 });
@@ -38,6 +39,11 @@ $("#gnb.mo>li>a").on("click",function(e){
 
 
 
+
+
+
+
+/* ================================ contact ================================ */
 
 function contactCheck(el) {
     if (!el.value.trim().length > 0 || el.value.trim().length == 0) {
@@ -47,71 +53,73 @@ function contactCheck(el) {
     return true;
 }
 
-const form = document.querySelector(".support_form");
+const form = document.querySelector(".contact form");
 if (form) {
-    let input_company = document.querySelector("input[name=company]"),
-        input_fication = document.querySelector("input[name=fication]"),
-        input_name = document.querySelector("input[name=name]"),
-        input_phone = document.querySelector("input[name=phone]"),
-        input_email = document.querySelector("input[name=email]"),
-        textarea = document.querySelector("textarea"),
-        input_checkbox = document.querySelector("input[name=checkbox]"),
-        button_submit = document.querySelector("button.submit"),
+    let f_submit = document.querySelector(".f_submit"),
+        input_company = document.querySelector(".input_company_name"),
+        input_name = document.querySelector(".input_name"),
+        input_tel = document.querySelector(".input_tel"),
+        input_email = document.querySelector(".input_email"),
+        textarea_detail = document.querySelector(".input_detail"),
+        input_privacy = document.querySelector(".input_privacy"),
+        file_btn = document.querySelectorAll("input.file_btn"),
+        file_name = document.querySelectorAll(".file_name"),
+        file_size = document.querySelectorAll(".file_size"),
         num = /[0-9]/,
         email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-    form.querySelectorAll("label input").forEach((el, index) => {
-        el.addEventListener("focus", () => {
-            el.parentElement.classList.add("active");
-        });
-        el.addEventListener("blur", () => {
-            if (el.value) return false;
-            el.parentElement.classList.remove("active");
-        });
-    });
+    form.addEventListener('keydown', function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+        };
+    }, true);
 
-    input_checkbox.parentElement.addEventListener("click", () => {
-        if (input_checkbox.checked) {
-            input_checkbox.parentElement.classList.add("active");
+
+    if (file_btn[0]) {
+        file_btn.forEach((el, index) => {
+            el.addEventListener("change", () => {
+                if (el.files[0] == undefined) return false;
+                file_name[index].textContent = el.files[0].name;
+                if (el.files[0].size >= 1024) {
+                    if (el.files[0].size >= (1024 * 1024 * 1024)) {
+                        alert("1000MB를 초과하였습니다.");
+                        file_name[index].textContent = "";
+                        el.value = "";
+                    } else {
+                        file_name[index].innerHTML += `<span class="file_size">${(el.files[0].size / (1024 * 1024)).toFixed(2)} MB</span>`;
+                    }
+                } else {
+                    file_name[index].innerHTML += `<span class="file_size">${(el.files[0].size / (1024 * 1024)).toFixed(10)} MB</span>`;
+                }
+            });
+        });
+    }
+
+    function contactCheck(el) {
+        if (el == input_tel && !num.test(el.value)) {
+            el.focus();
+            return false;
+        } else if (el == input_email && !email.test(input_email.value)) {
+            el.focus();
+            return false;
+        } else if (el == input_privacy && !el.checked) {
+            el.focus();
+            return false;
+        } else (!el.value.trim().length > 0 || el.value.trim().length == 0) {
+            el.focus();
             return false;
         }
-        input_checkbox.parentElement.classList.remove("active");
-    });
+        return true;
+    }
 
-    textarea.addEventListener("focus", () => {
-        textarea.parentElement.classList.add("active");
-    });
-    textarea.addEventListener("blur", () => {
-        if (textarea.value) return false;
-        textarea.parentElement.classList.remove("active");
-    });
-
-    button_submit.addEventListener("click", () => {
-
+    f_submit.addEventListener("click", () => {
         if (!contactCheck(input_name)) {
-            alert("성명을 입력해주세요.");
+            alert("이름을 입력해주세요");
             return false;
         }
-        if (!num.test(input_phone.value)) {
-            alert("연락처를 확인해주세요.");
-            return false;
-        }
-        if (!email.test(input_email.value)) {
-            alert("이메일을 확인해주세요.");
-            return false;
-        }
-        if (!contactCheck(textarea)) {
-            alert("문의내용을 입력해주세요.");
-            return false;
-        }
-        if (!input_checkbox.checked) {
-            alert("개인정보의 수집 및 이용에 동의해주세요.");
-            return false;
-        }
-
-        button_submit.disabled = false;
+        f_submit.disabled = false;
         form.submit();
-
     });
+
 
 }
