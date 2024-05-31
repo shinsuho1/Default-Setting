@@ -1,9 +1,11 @@
 /* ================================ common ================================ */
-
 // let url = location.href.split('/')[(location.href.split('/').length - 2)];
-const header = document.querySelector("header");
-const menuicon = document.querySelector(".menuicon");
-const pop_menu = document.querySelector(".pop_menu");
+let html = document.querySelector("html"),
+    body = document.querySelector("body"),
+    header = document.querySelector("header"),
+    footer = document.querySelector("footer"),
+    menuicon = document.querySelector(".menuicon"),
+    pop_menu = document.querySelector(".pop_menu");
 
 $(".menuicon").on("click", function () {
     $(this).toggleClass("active");
