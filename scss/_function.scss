@@ -56,14 +56,14 @@
     margin: 0 auto;
 }
 
-@mixin cover-bg($url) {
+@mixin bg-cover($url) {
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-@mixin contain-bg($url) {
+@mixin bg-contain($url) {
     background-image: url($url);
     background-position: center;
     background-repeat: no-repeat;

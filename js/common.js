@@ -4,8 +4,7 @@ let html = document.querySelector("html"),
     body = document.querySelector("body"),
     header = document.querySelector("header"),
     footer = document.querySelector("footer"),
-    menuicon = document.querySelector(".menuicon"),
-    pop_menu = document.querySelector(".pop_menu");
+    menuicon = document.querySelector(".menuicon");
 
 $(".menuicon").on("click", function () {
     $(this).toggleClass("active");
@@ -107,7 +106,7 @@ if (form) {
         } else if (el == input_privacy && !el.checked) {
             el.focus();
             return false;
-        } else (!el.value.trim().length > 0 || el.value.trim().length == 0) {
+        } else if(!el.value.trim().length > 0 || el.value.trim().length == 0) {
             el.focus();
             return false;
         }
