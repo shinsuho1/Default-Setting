@@ -62,14 +62,6 @@ window.addEventListener("DOMContentLoaded",function(){
 
 /* ================================ contact ================================ */
 
-function contactCheck(el) {
-    if (!el.value.trim().length > 0 || el.value.trim().length == 0) {
-        el.focus();
-        return false;
-    }
-    return true;
-}
-
 const form = document.querySelector(".contact form");
 if (form) {
     let f_submit = document.querySelector(".f_submit"),
