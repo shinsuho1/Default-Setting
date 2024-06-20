@@ -50,6 +50,14 @@
     flex-direction: column;
 }
 
+@mixin font-inherit{
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    color: inherit;
+}
+
 @mixin inner-center($max-width) {
     max-width: $max-width;
     width: 100%;
