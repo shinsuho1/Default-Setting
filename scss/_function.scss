@@ -233,8 +233,6 @@
 @mixin fs-20{
     font-size: 20px;
 }
-
-
 /* ================================ keyframe ================================ */
 
 @keyframes zoom-out{
@@ -433,19 +431,19 @@ body {
     display: inline-block;
 }
 
-.only {
+.br-block{
     display: block !important;
 }
 
-.pc_only {
+.pc-only {
     display: block;
 }
 
-.ta_only {
+.ta-only {
     display: none;
 }
 
-.mo_only {
+.mo-only {
     display: none;
 }
 
