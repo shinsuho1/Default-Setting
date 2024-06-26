@@ -439,6 +439,14 @@ body {
     }
 }
 
+.a_link{
+    @include transition(.3s);
+    color: #000;
+    &:hover{
+        color: #fff;
+    }
+}
+
 .aos_span{
     display: inline-block;
 }
@@ -461,16 +469,15 @@ body {
 
 
 @media (max-width:1024px) {
-    .pc-only {
+    .pc-only{
         display: none;
     }
-
     .ta-only {
         display: block;
     }
 }
 
-@media (max-width:767px) {
+@media (max-width:450px) {
     .ta-only {
         display: none;
     }
