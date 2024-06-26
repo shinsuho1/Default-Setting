@@ -442,6 +442,7 @@ body {
 .a_link{
     @include transition(.3s);
     color: #000;
+    cursor: pointer;
     &:hover{
         color: #fff;
     }
@@ -465,6 +466,10 @@ body {
 
 .mo-only {
     display: none;
+}
+
+.header_br{
+    // display: none;
 }
 
 
