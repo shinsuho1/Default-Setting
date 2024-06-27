@@ -1,5 +1,5 @@
 /* ================================ common ================================ */
-// let url = location.href.split('/')[(location.href.split('/').length - 2)];
+let url = location.href.split('/')[(location.href.split('/').length - 2)];
 let html = document.querySelector("html"),
     body = document.querySelector("body"),
     main = document.querySelector("main"),
@@ -7,31 +7,13 @@ let html = document.querySelector("html"),
     footer = document.querySelector("footer"),
     menuicon = document.querySelector(".menuicon");
 
-$(".menuicon").on("click", function () {
-    $(this).toggleClass("active");
-});
 
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-    let scrollTop = window.scrollY;
-    if (scrollTop > lastScroll) {
-        header.classList.remove("active");
-    } else {
-        header.classList.add("active");
-    }
-    lastScroll = scrollTop;
-})
-
-
-var main_slide = new Swiper(".main_slide", {
-    loop: true,
-    autoplay: {
-        delay: 8000,
-    },
-    speed: 1000,
-});
 
 window.addEventListener("DOMContentLoaded",function(){
+    $(".menuicon").on("click", function () {
+        $(this).toggleClass("active");
+    });
+
     $("#gnb>li>a").off("click").click(function(e){
         if(window.innerWidth <= 1024 && ($(this).siblings(".sub-menu").length > 0)){
             e.preventDefault();
@@ -52,22 +34,42 @@ window.addEventListener("DOMContentLoaded",function(){
             $("header").removeClass("hover");
             $(".header_blur").removeClass("on");
         }
-    })
+    });
+
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+        let scrollTop = window.scrollY;
+        if (scrollTop > lastScroll) {
+            header.classList.remove("active");
+        } else {
+            header.classList.add("active");
+        }
+        lastScroll = scrollTop;
+    });
+
+
+    if(url == "main"){
+        var main_slide = new Swiper(".main_slide", {
+            loop: true,
+            autoplay: {
+                delay: 8000,
+            },
+            speed: 1000,
+        });
+    }
 });
 
+//innertext.textContent.trim().replace(/[^0-9]/g,"");
 function copyText(elementClassName){
     let copyClick = document.querySelector(`.${elementClassName}`);
+    if(copyClick == null || !copyClick || copyClick == undefined) return false;
     copyClick.addEventListener("click", function() {
         let innertext = copyClick.textContent.trim();
-        console.log(innertext);
         window.navigator.clipboard.writeText(innertext).then(() => {
             alert("복사되었습니다.");
         });
     });    
 };
-
-copyText("test");
-
 
 
 

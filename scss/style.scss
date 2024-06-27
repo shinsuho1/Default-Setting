@@ -53,6 +53,8 @@ main {
                                         @include inner-center($innerWidth);
                                         position: relative;
                                         z-index: 2;
+                                        h2{}
+                                        p{}
                                     }
                                 }
                             }
@@ -65,6 +67,26 @@ main {
 
 
     &#sub_page {
+        .sub_banner{
+            width: 100%;
+            aspect-ratio: 1920/520;
+            max-height: 500px;
+            min-height: 300px;
+            position: relative;
+            .bg{
+                position: absolute;
+                @include fullsize;
+                @include pos-center;
+                @include drag-off;
+                overflow: hidden;
+                img{
+                    @include fullsize;
+                    object-fit: cover;
+                    animation: zoom-out 5s forwards
+                }
+
+            }
+        }
         &.about{
             section {
                 article {
