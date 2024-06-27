@@ -7,8 +7,6 @@ let html = document.querySelector("html"),
     footer = document.querySelector("footer"),
     menuicon = document.querySelector(".menuicon");
 
-
-
 window.addEventListener("DOMContentLoaded",function(){
     $(".menuicon").on("click", function () {
         $(this).toggleClass("active");
@@ -71,11 +69,6 @@ function copyText(elementClassName){
     });    
 };
 
-
-
-
-
-
 /* ================================ contact ================================ */
 
 const form = document.querySelector(".contact form");
@@ -85,7 +78,7 @@ if (form) {
         input_name = document.querySelector(".input_name"),
         input_tel = document.querySelector(".input_tel"),
         input_email = document.querySelector(".input_email"),
-        textarea_detail = document.querySelector(".input_detail"),
+        textarea_detail = document.querySelector(".textarea_detail"),
         input_privacy = document.querySelector(".input_privacy"),
         file_btn = document.querySelectorAll("input.file_btn"),
         file_name = document.querySelectorAll(".file_name"),
@@ -121,10 +114,10 @@ if (form) {
     }
 
     function contactCheck(el) {
-        if (el == input_tel && !num.test(el.value)) {
+        if (el == input_tel && !num.test(el.value.trim())) {
             el.focus();
             return false;
-        } else if (el == input_email && !email.test(input_email.value)) {
+        } else if (el == input_email && !email.test(input_email.value.trim())) {
             el.focus();
             return false;
         } else if (el == input_privacy && !el.checked) {
@@ -145,6 +138,4 @@ if (form) {
         f_submit.disabled = false;
         form.submit();
     });
-
-
 }
