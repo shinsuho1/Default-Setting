@@ -59,9 +59,10 @@ window.addEventListener("DOMContentLoaded",function(){
 
 //innertext.textContent.trim().replace(/[^0-9]/g,"");
 function copyText(elementClassName){
-    let copyClick = document.querySelector(`.${elementClassName}`);
+    let copyClick = document.querySelector(`${elementClassName}`);
     if(copyClick == null || !copyClick || copyClick == undefined) return false;
-    copyClick.addEventListener("click", function() {
+    copyClick.addEventListener("click", function(e) {
+        e.preventDefault();
         let innertext = copyClick.textContent.trim();
         window.navigator.clipboard.writeText(innertext).then(() => {
             alert("복사되었습니다.");
