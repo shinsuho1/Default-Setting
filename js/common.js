@@ -57,6 +57,7 @@ window.addEventListener("DOMContentLoaded",function(){
     }
 });
 
+/* writeText는 local이나 https에서만 작동함, http에는 작동안함 */
 //innertext.textContent.trim().replace(/[^0-9]/g,"");
 function copyText(elementClassName){
     let copyClick = document.querySelector(`${elementClassName}`);
