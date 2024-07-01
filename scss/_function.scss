@@ -397,6 +397,7 @@ button {
     -moz-border-radius: 0;
     outline: none;
     background: none;
+    resize: none;
 }
 
 input,
@@ -480,6 +481,13 @@ body {
     cursor: pointer;
     &:hover{
     }
+}
+
+.ellipsis_1{
+    @include ellipsis(1);
+}
+.ellipsis_2{
+    @include ellipsis(2);
 }
 
 .aos-span{
