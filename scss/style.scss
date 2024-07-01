@@ -33,8 +33,7 @@ main {
                                     @include flex-center;
                                     position: relative;
                                     .bg {
-                                        width: 100%;
-                                        height: 100%;
+                                        @include fullsize;
                                         position: absolute;
                                         top: 0;
                                         left: 0;
@@ -43,9 +42,7 @@ main {
                                         >img,
                                         >video,
                                         >iframe {
-                                            width: 100%;
-                                            height: 100%;
-                                            object-fit: cover;
+                                            @include img-cover;
                                         }
                                     }
     

@@ -4,12 +4,11 @@ header{
     position: fixed;
     z-index: 100;
     .header-wrap{
-        width: $innerWidth;
-        margin: 0 auto;
-        @include flex_space_center;
+        @include inner-center($innerWidth);
+        @include flex-space-center;
         #gnb{
             &.pc{
-                @include flex_center;
+                @include flex-center;
                 >li{
                     position: relative;
                     >a{
