@@ -150,10 +150,10 @@
 }
 
 
-@mixin clipText($num) {
+@mixin clipText($n) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: $num;
+    -webkit-line-clamp: $n;
     overflow: hidden;
 }
 
