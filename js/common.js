@@ -5,10 +5,11 @@ let html = document.querySelector("html"),
     main = document.querySelector("main"),
     header = document.querySelector("header"),
     footer = document.querySelector("footer"),
-    menuicon = document.querySelector(".menuicon"),
-    scrollY = window.scrollY;
+    menuicon = document.querySelector(".menuicon");
 
 window.addEventListener("DOMContentLoaded",function(){
+    let scrollY = window.scrollY,
+        lastScroll = 0;
     $(".menuicon").on("click", function () {
         $(this).toggleClass("active");
     });
@@ -35,9 +36,9 @@ window.addEventListener("DOMContentLoaded",function(){
         }
     });
 
-    let lastScroll = 0;
     window.addEventListener("scroll", () => {
         scrollY = window.scrollY;
+        if (window.innerWidth <= 1024 && header_gnb.classList.contains("active")) return false;
         let scrollTop = window.scrollY;
         if (scrollTop > lastScroll) {
             header.classList.remove("active");
