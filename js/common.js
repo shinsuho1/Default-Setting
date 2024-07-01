@@ -5,7 +5,8 @@ let html = document.querySelector("html"),
     main = document.querySelector("main"),
     header = document.querySelector("header"),
     footer = document.querySelector("footer"),
-    menuicon = document.querySelector(".menuicon");
+    menuicon = document.querySelector(".menuicon"),
+    scrollY = window.scrollY;
 
 window.addEventListener("DOMContentLoaded",function(){
     $(".menuicon").on("click", function () {
@@ -36,6 +37,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
     let lastScroll = 0;
     window.addEventListener("scroll", () => {
+        scrollY = window.scrollY;
         let scrollTop = window.scrollY;
         if (scrollTop > lastScroll) {
             header.classList.remove("active");
@@ -58,7 +60,7 @@ window.addEventListener("DOMContentLoaded",function(){
 
 /* writeText는 local이나 https에서만 작동함, http에서는 작동안함 */
 //innertext.textContent.trim().replace(/[^0-9]/g,"");
-function Copytext(elementName){
+function copytext(elementName){
     let copyClick = document.querySelector(`${elementName}`);
     if(!copyClick || copyClick == null || copyClick == undefined) return false;
     copyClick.addEventListener("click", function(e) {
