@@ -4,6 +4,12 @@
     flex-wrap: wrap;
 }
 
+@mixin flex-start{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -84,22 +90,21 @@
 
 @mixin flex-el-list($count, $column-gap, $row-gap) {
     @include flex-list;
-    row-gap: $row-gap;
     column-gap: $column-gap;
+    row-gap: $row-gap;
     >* {
         width: calc(100% / $count - ($column-gap * ($count - 1) / $count));
     }
 }
 
-@mixin img-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 @mixin fullsize {
     width: 100%;
     height: 100%;
+}
+
+@mixin img-cover {
+    @include fullsize;
+    object-fit: cover;
 }
 
 @mixin maxSize($width, $height) {
@@ -113,8 +118,7 @@
 }
 
 @mixin fixedSize($width, $height) {
-    width: 100%;
-    height: 100%;
+    @include fullsize;
     max-width: $width;
     max-height: $width;
     min-width: $height;
@@ -433,8 +437,7 @@ body {
     transition: .3s;
 
     &.on {
-        width: 100%;
-        height: 100%;
+        @include fullsize;
         background-color: rgba(216, 216, 216, 0.1);
         -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);

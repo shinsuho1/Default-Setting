@@ -45,7 +45,6 @@ window.addEventListener("DOMContentLoaded",function(){
         lastScroll = scrollTop;
     });
 
-
     if(url == "main"){
         var main_slide = new Swiper(".main_slide", {
             loop: true,
@@ -57,11 +56,11 @@ window.addEventListener("DOMContentLoaded",function(){
     }
 });
 
-/* writeText는 local이나 https에서만 작동함, http에는 작동안함 */
+/* writeText는 local이나 https에서만 작동함, http에서는 작동안함 */
 //innertext.textContent.trim().replace(/[^0-9]/g,"");
-function copyText(elementClassName){
-    let copyClick = document.querySelector(`${elementClassName}`);
-    if(copyClick == null || !copyClick || copyClick == undefined) return false;
+function Copytext(elementName){
+    let copyClick = document.querySelector(`${elementName}`);
+    if(!copyClick || copyClick == null || copyClick == undefined) return false;
     copyClick.addEventListener("click", function(e) {
         e.preventDefault();
         let innertext = copyClick.textContent.trim();
@@ -72,7 +71,6 @@ function copyText(elementClassName){
 };
 
 /* ================================ contact ================================ */
-
 const form = document.querySelector(".contact form");
 if (form) {
     let f_submit = document.querySelector(".f_submit"),
