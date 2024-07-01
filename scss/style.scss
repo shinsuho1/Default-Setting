@@ -50,8 +50,12 @@ main {
                                         @include inner-center($innerWidth);
                                         position: relative;
                                         z-index: 2;
-                                        h2{}
-                                        p{}
+                                        h2{
+                                            width: 100%;
+                                        }
+                                        p{
+                                            width: 100%;
+                                        }
                                     }
                                 }
                             }
