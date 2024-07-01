@@ -27,7 +27,6 @@ main {
     
                             .swiper-wrapper {
                                 @include fullsize;
-                                
                                 .swiper-slide {
                                     @include fullsize;
                                     @include flex-center;

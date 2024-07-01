@@ -75,8 +75,8 @@
 @mixin font-inherit{
     font-size: inherit;
     font-weight: inherit;
-    line-height: inherit;
     font-family: inherit;
+    line-height: inherit;
     color: inherit;
 }
 
@@ -141,7 +141,7 @@
     min-height: $height;
 }
 
-@mixin transition($s) {
+@mixin transition($s: .3s) {
     transition: $s;
     -webkit-transition: $s;
     -moz-transition: $s;
@@ -150,10 +150,10 @@
 }
 
 
-@mixin clipText($n) {
+@mixin cliptext($line: 1) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: $n;
+    -webkit-line-clamp: $line;
     overflow: hidden;
 }
 
@@ -225,7 +225,7 @@
     transform: unset;
 }
 
-@mixin before-bg($color,$opacity: 1){
+@mixin before-bg($color:#000,$opacity: 1){
     @include fullsize;
     &:before{
         content: "";
@@ -237,7 +237,7 @@
     }
 }
 
-@mixin after-bg($color,$opacity: 1){
+@mixin after-bg($color:#000,$opacity: 1){
     @include fullsize;
     &:after{
         content: "";
@@ -264,7 +264,7 @@
 }
 /* ================================ KEYFRAMES ================================ */
 
-@keyframes zoom-out{
+@keyframes zoom-in{
     0%{
         transform: scale(1.3);
     }
@@ -344,7 +344,7 @@ section {
 }
 
 * {
-    // Scrollbar
+    /* Scrollbar */
     // &::-webkit-scrollbar {
     //     width: 5px;
     //     height: 5px;
@@ -360,7 +360,7 @@ section {
     // }
 
 
-    // Darg
+    /* Darg */
     // &::-moz-selection {
     //     background-color: rgba($color: #006eb5, $alpha: .7);
     //     color: #fff;
@@ -407,7 +407,7 @@ option,
 textarea,
 textarea::placeholder,
 select {
-    font-family: inherit;
+    @include font-inherit;
 }
 
 input[type="checkbox"] {
@@ -455,18 +455,16 @@ body {
     }
 }
 
-
 /* ================================ CLASS ================================ */
 
 .header_blur {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 90;
     opacity: 0;
     transition: opacity 0.3s cubic-bezier(0.25, 0.45, 0.5, 1);
     pointer-events: none;
-    transition: .3s;
 
     &.on {
         @include fullsize;
@@ -484,18 +482,21 @@ body {
     }
 }
 
-.ellipsis_1{
+.ellipsis_line1{
     @include ellipsis(1);
 }
-.ellipsis_2{
+.ellipsis_line2{
     @include ellipsis(2);
+}
+.ellipsis_line3{
+    @include ellipsis(3);
 }
 
 .aos-span{
     display: inline-block;
 }
 
-.br-block{
+.block-only{
     display: block !important;
 }
 
