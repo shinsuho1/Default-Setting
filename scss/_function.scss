@@ -342,18 +342,32 @@ section {
     display: block;
 }
 
-html {
+* {
+    // Scrollbar
     // &::-webkit-scrollbar {
-    //     width: 4px;
-    //     height: 10px;
+    //     width: 5px;
+    //     height: 5px;
     // }
 
     // &::-webkit-scrollbar-thumb {
     //     background-color: #aaa;
+    //     border-radius: 5px;
     // }
 
     // &::-webkit-scrollbar-track {
     //     background-color: transparent;
+    // }
+
+
+    // Darg
+    // &::-moz-selection {
+    //     background-color: rgba($color: #006eb5, $alpha: .7);
+    //     color: #fff;
+    // }
+
+    // &::selection {
+    //     background-color: rgba($color: #006eb5, $alpha: .7);
+    //     color: #fff;
     // }
 }
 
