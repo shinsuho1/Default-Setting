@@ -106,5 +106,34 @@ header{
 }
 
 footer{
-    
+    .footer-wrap{
+        @include inner-center($innerWidth);
+    }
+}
+
+@media (max-width:1300px){
+    header{
+        .header-wrap{
+            margin: 0;
+            padding: 0 5%;
+        }
+    }
+    footer{
+        .footer-wrap{
+            margin: 0;
+            padding: 0 5%;
+        }
+    }
+}
+
+@media (max-width: 1024px){
+
+}
+
+@media (max-width: 767px){
+
+}
+
+@media (max-width: 450px){
+
 }

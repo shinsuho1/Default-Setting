@@ -89,13 +89,14 @@ if (form) {
         num = /[0-9]/,
         email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
+    /* Form Enter X */
     form.addEventListener('keydown', function (event) {
         if (event.keyCode === 13) {
             event.preventDefault();
         };
     }, true);
 
-
+    /* file */
     if (file_btn[0]) {
         file_btn.forEach((el, index) => {
             el.addEventListener("change", () => {

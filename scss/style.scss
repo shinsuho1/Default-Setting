@@ -67,6 +67,16 @@ main {
 
 
     &#sub_page {
+        section{
+            width: 100%;
+            article{
+                width: 100%;
+                @include inner-center($innerWidth);
+                .wrap{
+                    width: 100%;
+                }
+            } 
+        }
         .sub_banner{
             width: 100%;
             aspect-ratio: 1920/520;
@@ -85,21 +95,6 @@ main {
                     animation: zoom-out 5s forwards
                 }
 
-            }
-        }
-        &.about{
-            section {
-                article {
-                    @include inner-center($innerWidth);
-                    .wrap {
-                        .title {
-                            h2 {}
-                            p {}
-                        }
-                        .content{
-                        }
-                    }
-                }
             }
         }
     }

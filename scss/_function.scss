@@ -413,12 +413,9 @@ button {
     resize: none;
 }
 
-input,
 input::placeholder,
 option,
-textarea,
-textarea::placeholder,
-select {
+textarea::placeholder {
     @include font-inherit;
 }
 
@@ -546,6 +543,7 @@ body {
     }
 }
 
+/* 스와이퍼 무한롤링 */
 // .swiper-wrapper{
 //     transition-timing-function:linear;
 // }
