@@ -11,54 +11,8 @@ main {
             &:not(.s01){
                 article{
                     @include inner-center($innerWidth);
-                }
-            }
-            &.s01{
-                width: 100%;
-                height: 100vh;
-                article {
-                    @include fullsize;
-                    .wrap {
-                        @include fullsize;
-                        .swiper {
-                            @include fullsize;
-                            position: relative;
-                            z-index: 2;
-    
-                            .swiper-wrapper {
-                                @include fullsize;
-                                .swiper-slide {
-                                    @include fullsize;
-                                    @include flex-center;
-                                    position: relative;
-                                    .bg {
-                                        @include fullsize;
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        z-index: 1;
-    
-                                        >img,
-                                        >video,
-                                        >iframe {
-                                            @include img-cover;
-                                        }
-                                    }
-    
-                                    .title {
-                                        @include inner-center($innerWidth);
-                                        position: relative;
-                                        z-index: 2;
-                                        h2{
-                                            width: 100%;
-                                        }
-                                        p{
-                                            width: 100%;
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    .wrap{
+                        width: 100%;
                     }
                 }
             }
@@ -76,26 +30,6 @@ main {
                     width: 100%;
                 }
             } 
-        }
-        .sub_banner{
-            width: 100%;
-            aspect-ratio: 1920/520;
-            max-height: 500px;
-            min-height: 300px;
-            position: relative;
-            .bg{
-                position: absolute;
-                @include fullsize;
-                @include pos-center;
-                @include drag-off;
-                overflow: hidden;
-                img{
-                    @include fullsize;
-                    object-fit: cover;
-                    animation: zoom-out 5s forwards
-                }
-
-            }
         }
     }
 }
