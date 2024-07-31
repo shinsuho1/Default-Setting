@@ -517,7 +517,7 @@ body {
     }
 }
 
-.a_link{
+.hover_link{
     @include transition(.3s);
     cursor: pointer;
     &:hover{
@@ -573,7 +573,7 @@ body {
     }
 }
 
-/* 스와이퍼 무한롤링 */
+/* 스와이퍼 배너 */
 // .swiper-wrapper{
 //     transition-timing-function:linear;
 // }

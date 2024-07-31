@@ -73,6 +73,9 @@ function copytext(elementName){
     });    
 };
 
+
+
+
 /* ================================ contact ================================ */
 const form = document.querySelector(".contact form");
 if (form) {
