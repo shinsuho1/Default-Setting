@@ -55,6 +55,17 @@ window.addEventListener("DOMContentLoaded",function(){
                 delay: 8000,
             },
             speed: 1000,
+            // navigation: {
+            //     nextEl: ".swiper-next",
+            //     prevEl: ".swiper-prev",
+            // },
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            //     draggable: true,
+            // },
+            // pagination: {
+            //     el: ".swiper-pagination",
+            // },
         });
     }
 });
