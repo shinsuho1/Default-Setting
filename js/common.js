@@ -55,20 +55,33 @@ window.addEventListener("DOMContentLoaded",function(){
                 delay: 8000,
             },
             speed: 1000,
-            // navigation: {
-            //     nextEl: ".swiper-next",
-            //     prevEl: ".swiper-prev",
-            // },
-            // scrollbar: {
-            //     el: '.swiper-scrollbar',
-            //     draggable: true,
-            // },
-            // pagination: {
-            //     el: ".swiper-pagination",
-            // },
         });
     }
 });
+
+/*
+    var swiper = new Swiper(".swiper", {
+        loop: true,
+        autoplay: {
+            delay: 8000,
+        },
+        speed: 1000,
+        navigation: {
+            nextEl: ".swiper-next",
+            prevEl: ".swiper-prev",
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        thumbs: {
+            swiper: thumbs-swiper-name,
+        },
+    });
+*/
 
 /* writeText는 local이나 https에서만 작동함, http에서는 작동안함 */
 //innertext.textContent.trim().replace(/[^0-9]/g,"");
