@@ -61,11 +61,18 @@ window.addEventListener("DOMContentLoaded",function(){
 
 /*
     var swiper = new Swiper(".swiper", {
+        direction: "horizontal / vertical",
         loop: true,
         autoplay: {
             delay: 8000,
+            disableOnInteraction: false,
         },
         speed: 1000,
+        spaceBetween: 10,
+        slidesPerView: 5,
+        centeredSlides: true,
+        autoHeight: true,
+        touchRatio: 0,  
         navigation: {
             nextEl: ".swiper-next",
             prevEl: ".swiper-prev",
@@ -80,6 +87,18 @@ window.addEventListener("DOMContentLoaded",function(){
         thumbs: {
             swiper: thumbs-swiper-name,
         },
+        on: {
+            slideChange: function (el) {
+            },
+            slideChangeTransitionStart: function(el){
+            
+            },
+        },
+        breakpoints: {
+            0:{
+
+            },
+        }
     });
 */
 
